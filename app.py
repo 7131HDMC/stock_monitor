@@ -38,14 +38,14 @@ def plot_candlestick(df,acao='ticket'):
 
 sidebar = st.sidebar.empty()
 
-country_select = st.sidebar.selectbox("Selecione o paí:", countries)
+country_select = st.sidebar.selectbox("Selecione o país:", countries)
 
 stocks = ip.get_stocks_list(country=country_select)
 
 stock_select = st.sidebar.selectbox("Selecione o ativo:", stocks)
 
-from_date = st.sidebar.date_input("De:", start_date)
-to_date   = st.sidebar.date_input("Para:", end_date)
+from_date = st.sidebar.date_input("De: ", start_date)
+to_date   = st.sidebar.date_input("Para: ", end_date)
 
 interval_select = st.sidebar.selectbox("Selecione o intervalo:",intervals)
 
@@ -55,18 +55,18 @@ load_data = st.sidebar.checkbox('Carregar Dados')
 st.title("Monitor de Ação")
 st.subheader("Visualização gráfica")
 
+# candle_graph, line_graph = st.columns(2)
 candle_graph = st.empty()
-line_graph   = st.empty()
-
+line_graph = st.empty()
 if from_date > to_date:
     st.sidebar.error("Data de ínicio maior que a data final")
 else:
     df = search_stocks(stock_select, country_select, format_date(from_date), format_date(to_date), interval_select)
     try:
         fig = plot_candlestick(df)
-        candle_graph = st.plotly_chart(fig)
-        line_graph   = st.line_chart(df.Close)
-
+        candle_graph.plotly_chart(fig)
+        line_graph.line_chart(df.Close)
+        
         if load_data:
             st.subheader('Dados')
             dados = st.dataframe(df)
