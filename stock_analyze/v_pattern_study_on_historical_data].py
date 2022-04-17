@@ -78,6 +78,7 @@ stock = "ALPA4"
 df_result = {}
 # print("STocks :: ", stocks)
 
+"""" # Implementação de loop para aplicar busca de padrão gráfico entre as ações do país selecionado """
 for stock in stocks:
     try:
         df = search_stocks(stock, country_select, '13/04/2020', '13/04/2022', intervals[0])
