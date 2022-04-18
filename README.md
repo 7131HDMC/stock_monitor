@@ -7,6 +7,5 @@ Adicionado notebook com contextos para execução
 
 Na pasta analyze está alguns studos com implementação de análise quantitativa de estátegias financeiras.
 
-###### Feito com base em instrução do 
-<strong>Synapse Data Science</strong>
+###### Feito com base em instrução do <strong>Synapse Data Science</strong>
 
