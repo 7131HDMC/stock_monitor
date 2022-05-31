@@ -148,6 +148,7 @@ else:
 
         if show_closeprice:
             show_close_price()
+        
     except Exception as e:
         st.error(e)
 
